@@ -67,6 +67,8 @@ void display_calendar(int dow, int year, int month) {
         std::cout << "   ";
     }
 
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) days_in_month[1] = 29; // Leap Case
+
     for (int i = 1; i <= days_in_month[month-1]; i++) {
         if (i < 10) std::cout << " ";
         if (tracker > 1) {
