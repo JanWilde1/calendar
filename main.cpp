@@ -29,8 +29,22 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    int month = std::stoi(argv[1]);
-    int year = std::stoi(argv[2]);
+    int month;
+    int year;
+
+    try {
+        month = std::stoi(argv[1]);
+    } catch (std::invalid_argument& e) {
+        std::cout << "Month must be an integer value.\n";
+        return -1;
+    }
+
+    try {
+        year = std::stoi(argv[2]);
+    } catch (std::invalid_argument& e) {
+        std::cout << "Year must be an integer value.\n";
+        return -1;
+    }
 
     if (month > 12 || month < 1) {
         std::cout << "Month must be a numeric value between 1-12. Please try again." << std::endl;
