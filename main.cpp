@@ -19,18 +19,23 @@ std::string months[] = {
 };
 
 int main(int argc, char *argv[]) {
+    if (argc < 2 || argc > 3) {
+        std::cout << "Invalid number of arguments. Please call 'calendar -h' for more information." << std::endl;
+        return 0;
+    }
+
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
         std::cout << "Usage:" << std::endl << "calendar MONTH <1-12> YEAR <1-9999>" << std::endl;
         return 0;
     } // HELP BLOCK
 
+    int month;
+    int year;
+
     if (argc != 3) {
         std::cout << "Invalid number of arguments. Please call 'calendar -h' for more information." << std::endl;
         return 0;
     }
-
-    int month;
-    int year;
 
     try {
         month = std::stoi(argv[1]);
